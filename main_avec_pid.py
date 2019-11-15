@@ -38,6 +38,7 @@ def Reculer(i):
     Pid_Droit.consigne= i
 
 
+    
 def Pivoter_Droite(i):
     Moteur_Gauche.Cmde_moteur(SENS_HORAIRE, i)
     Moteur_Droit.Cmde_moteur(SENS_ANTI_HORAIRE, i)
@@ -60,14 +61,22 @@ def Arret():
 
 
 
-while True:
-    Avancer(0.7)
-    time.sleep(10)
-    Reculer(0.5)
-    time.sleep(10)
-    Pivoter_Droite(0.7)
-    time.sleep(10)
-    Pivoter_Gauche(0.7)
-    time.sleep(10)
-    Arret()
-    time.sleep(10)
+
+def test(d, i):
+    while True:
+        Arret()
+        Avancer(i)
+        time.sleep(d)
+        Arret()
+        Reculer(i)
+        time.sleep(d)
+        Arret()
+        Pivoter_Droite(i)
+        time.sleep(d)
+        Arret()
+        Pivoter_Gauche(i)
+        time.sleep(d)
+        Arret()
+        time.sleep(d)
+
+test(5, 0.2)
